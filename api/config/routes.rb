@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :recipes, :defaults => {:format => :json } do
-        resources :directions, :defaults => {:format => :json }
-        resources :ingredients, :defaults => {:format => :json }
+      resources :recipes, :defaults => { :format => :json } do
+        resources :directions, :defaults => { :format => :json }
+        resources :ingredients, :defaults => { :format => :json }
       end
-      
-      resources :users, :defaults => {:format => :json }
+
+      resources :users, :defaults => { :format => :json } do
+        resources :recipes, :defaults => { :format => :json }
+      end
     end
   end
 

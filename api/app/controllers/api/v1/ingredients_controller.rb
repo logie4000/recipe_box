@@ -3,8 +3,13 @@ class Api::V1::IngredientsController < ApplicationController
 
   # GET /ingredients
   def index
-    @ingredients = Ingredient.all
-
+    if (params[:recipe_id])
+      @recipe = Recipe.find(params[:recipe_id])
+      @ingredienets = @recipe.ingredients
+    else
+      @ingredients = Ingredient.all
+    end
+    
     render json: @ingredients
   end
 

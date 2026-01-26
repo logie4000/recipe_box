@@ -3,8 +3,13 @@ class Api::V1::RecipesController < ApplicationController
 
   # GET /recipes
   def index
-    @recipes = Recipe.all
-
+    if (params[:user_id])
+      @user = User.find(params[:user_id])
+      @recipes = @user.recipes
+    else
+      @recipes = Recipe.all
+    end
+    
     render json: @recipes
   end
 
@@ -27,6 +32,13 @@ class Api::V1::RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   def update
     if @recipe.update(recipe_params)
+      p = 0
+      @recipe.directions.each do |direction|
+        direction.position = p
+        direction.save!
+        p += 1
+      end
+
       render json: @recipe
     else
       render json: @recipe.errors, status: :unprocessable_content
