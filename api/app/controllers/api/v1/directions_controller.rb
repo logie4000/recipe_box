@@ -3,8 +3,13 @@ class Api::V1::DirectionsController < ApplicationController
 
   # GET /directions
   def index
-    @directions = Direction.all
-
+    if (params[:recipe_id])
+      @recipe = Recipe.find(params[:recipe_id])
+      @directions = @recipe.directions
+    else
+      @directions = Direction.all
+    end
+    
     render json: @directions
   end
 
