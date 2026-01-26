@@ -5,7 +5,7 @@ class Api::V1::IngredientsController < ApplicationController
   def index
     if (params[:recipe_id])
       @recipe = Recipe.find(params[:recipe_id])
-      @ingredienets = @recipe.ingredients
+      @ingredients = @recipe.ingredients
     else
       @ingredients = Ingredient.all
     end
