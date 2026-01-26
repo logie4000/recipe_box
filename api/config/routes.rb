@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  resources :directions
-  resources :ingredients
-  resources :recipes
-  resources :users
+  namespace :api do
+    namespace :v1 do
+      resources :recipes, :defaults => {:format => :json } do
+        resources :directions, :defaults => {:format => :json }
+        resources :ingredients, :defaults => {:format => :json }
+      end
+      
+      resources :users, :defaults => {:format => :json }
+    end
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
