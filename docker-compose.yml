@@ -8,12 +8,14 @@ services:
       dockerfile: Dockerfile.production
     image: "recipe_box.api:latest"
     ports:
-      - "8081:80"
+      - "8181:80"
     networks:
       - teapothill
     env_file:
       - path: "./config/.bills_galley.env"
         required: true
+    environment:
+      - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
     depends_on:
      db:
        condition: service_healthy

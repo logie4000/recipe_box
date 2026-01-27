@@ -2,7 +2,7 @@ services:
   db:
     build:
       context: ./database
-      dockerfile: Dockerfile_mysql
+      dockerfile: Dockerfile.mysql
     image: "recipe_box.mysql:latest"
     volumes:
       - "teapothill_volume:/data"
