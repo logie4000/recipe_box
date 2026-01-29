@@ -1,5 +1,5 @@
 class Api::V1::DirectionsController < ApplicationController
-  before_action :set_direction, only: %i[ show update destroy ]
+  before_action :set_direction, only: %i[ update destroy ]
 
   # GET /directions
   def index
@@ -7,32 +7,22 @@ class Api::V1::DirectionsController < ApplicationController
       @recipe = Recipe.find(params[:recipe_id])
       @directions = @recipe.directions
     else
-      @directions = Direction.all
+    #  @directions = Direction.all
     end
     
     render json: @directions
   end
 
-  # GET /directions/1
-  def show
-    render json: @direction
-  end
-
-  # POST /directions
-  def create
-    @direction = Direction.new(direction_params)
-
-    if @direction.save
-      render json: @direction, status: :created, location: @direction
-    else
-      render json: @direction.errors, status: :unprocessable_content
-    end
-  end
-
   # PATCH/PUT /directions/1
   def update
+    begin
+      direction_params
+    rescue StandardError => e
+      raise ActiveRecord::RecordInvalid
+    end
+
     if @direction.update(direction_params)
-      render json: @direction
+      render json: @direction, status: :no_content
     else
       render json: @direction.errors, status: :unprocessable_content
     end

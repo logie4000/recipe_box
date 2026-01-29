@@ -23,7 +23,7 @@ class Api::V1::RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      render json: @recipe, status: :created, location: @recipe
+      render json: @recipe, status: :created
     else
       render json: @recipe.errors, status: :unprocessable_content
     end
@@ -31,15 +31,14 @@ class Api::V1::RecipesController < ApplicationController
 
   # PATCH/PUT /recipes/1
   def update
-    if @recipe.update(recipe_params)
-      p = 0
-      @recipe.directions.each do |direction|
-        direction.position = p
-        direction.save!
-        p += 1
-      end
+    begin
+      recipe_params
+    rescue StandardError => e
+      raise ActiveRecord::RecordInvalid
+    end
 
-      render json: @recipe
+    if @recipe.update(recipe_params)
+      render json: @recipe, status: :no_content
     else
       render json: @recipe.errors, status: :unprocessable_content
     end
@@ -58,6 +57,9 @@ class Api::V1::RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.expect(recipe: [ :title, :description, :note, :author_id, :image_url ])
+      params.expect(recipe: [ :title, :description, :note, :author_id, :image, 
+                      ingredients_attributes: [[ :id, :position, :value, :_destroy ]],
+                      directions_attributes: [[ :id, :position, :step, :_destroy ]],
+                    ])
     end
 end

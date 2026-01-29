@@ -15,10 +15,16 @@ class Api::V1::UsersController < ApplicationController
 
   # POST /users
   def create
+    begin
+      user_params
+    rescue StandardError => e
+      raise ActiveRecord::RecordInvalid
+    end
+
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      render json: @user, status: :created
     else
       render json: @user.errors, status: :unprocessable_content
     end
@@ -26,8 +32,14 @@ class Api::V1::UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
+    begin
+      user_params
+    rescue StandardError => e
+      raise ActiveRecord::RecordInvalid
+    end
+
     if @user.update(user_params)
-      render json: @user
+      render json: @user, status: :no_content
     else
       render json: @user.errors, status: :unprocessable_content
     end

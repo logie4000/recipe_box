@@ -6,6 +6,9 @@ Rails.application.routes.draw do
         resources :ingredients, :defaults => { :format => :json }
       end
 
+      resources :directions, :defaults => { :format => :json }, :only => [ :update ]
+      resources :ingredients, :defaults => { :format => :json }, :only => [ :update ]
+
       resources :users, :defaults => { :format => :json } do
         resources :recipes, :defaults => { :format => :json }
       end

@@ -1,5 +1,5 @@
 class Api::V1::IngredientsController < ApplicationController
-  before_action :set_ingredient, only: %i[ show update destroy ]
+  before_action :set_ingredient, only: %i[ update destroy ]
 
   # GET /ingredients
   def index
@@ -7,32 +7,22 @@ class Api::V1::IngredientsController < ApplicationController
       @recipe = Recipe.find(params[:recipe_id])
       @ingredients = @recipe.ingredients
     else
-      @ingredients = Ingredient.all
+    #  @ingredients = Ingredient.all
     end
     
     render json: @ingredients
   end
 
-  # GET /ingredients/1
-  def show
-    render json: @ingredient
-  end
-
-  # POST /ingredients
-  def create
-    @ingredient = Ingredient.new(ingredient_params)
-
-    if @ingredient.save
-      render json: @ingredient, status: :created, location: @ingredient
-    else
-      render json: @ingredient.errors, status: :unprocessable_content
-    end
-  end
-
   # PATCH/PUT /ingredients/1
   def update
+    begin
+      ingredient_params
+    rescue StandardError => e
+      raise ActiveRecord::RecordInvalid
+    end
+
     if @ingredient.update(ingredient_params)
-      render json: @ingredient
+      render json: @ingredient, status: :no_content
     else
       render json: @ingredient.errors, status: :unprocessable_content
     end
