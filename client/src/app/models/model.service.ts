@@ -8,6 +8,7 @@ import { Observable } from "rxjs";
 export abstract class ModelService<Model> {
     abstract endpointUrl: string;
     abstract api: string;
+    abstract itemUrl(item: Model): string;
 
     constructor(protected http: HttpClient) {
 

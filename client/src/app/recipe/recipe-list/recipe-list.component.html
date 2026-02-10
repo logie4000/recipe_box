@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for(recipe of itemList(); track recipe) {
+      <tr (click)="onRowClick(recipe)">
+        <td>IMG</td>
+        <td>{{ recipe.title }}</td>
+        <td>{{ recipe.description }}</td>
+        <td>AUTHOR</td>
+      </tr>
+    }
+  </tbody>
+</table>

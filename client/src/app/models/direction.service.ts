@@ -11,7 +11,7 @@ export class DirectionService extends ModelService<Direction> {
   override endpointUrl = config.DB_DIRECTIONS_SERVICE;
   override api = config.HOST_DIRECTIONS_SERVICE;
 
-  itemUrl(direction: Direction): string {
+  override itemUrl(direction: Direction): string {
     return `/${config.HOST_DIRECTIONS_SERVICE}/${direction.id}`
   }
 }
