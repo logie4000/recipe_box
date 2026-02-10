@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ModelIndexComponent } from '../shared/model-index.component';
 import { RecipeService } from '../models/recipe.service';
 import { Recipe } from '../models/recipe';
+import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 
 @Component({
   selector: 'app-recipe-index',
-  imports: [],
+  imports: [RecipeListComponent],
   templateUrl: './recipe-index.component.html',
   styleUrls: ['../app.component.css', './recipe-index.component.css']
 })

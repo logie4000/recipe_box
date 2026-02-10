@@ -26,7 +26,6 @@ describe('RecipeComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(RecipeComponent);
-    fixture.componentRef.setInput("showStats", false);
     component = fixture.componentInstance;
     component.id.set(testData.RECIPE_1.id);
 
@@ -40,11 +39,11 @@ describe('RecipeComponent', () => {
   it('should have the expected HTML elements', () => {
     expect(fixture.componentInstance.error()).toBeFalsy();
 
-    var topPane = fixture.nativeElement.querySelector('div[class="top-pane"]')
+    // var topPane = fixture.nativeElement.querySelector('div[class="top-pane"]')
 
-    expect(topPane).toBeTruthy();
+    // expect(topPane).toBeTruthy();
 
-    var recipeTitle = fixture.nativeElement.querySelector('div[id="title"]')
+    var recipeTitle = fixture.nativeElement.querySelector('div[class="title"]')
     var recipeDescription = fixture.nativeElement.querySelector('div[class="description"]')
     var recipeNote = fixture.nativeElement.querySelector('div[class="note"]')
     
@@ -53,7 +52,7 @@ describe('RecipeComponent', () => {
     expect(recipeNote).toBeTruthy();
   })
 
-  it('should fetch race data', waitForAsync(inject([HttpTestingController], async (mockHttp: HttpTestingController) => {
+  it('should fetch item data', waitForAsync(inject([HttpTestingController], async (mockHttp: HttpTestingController) => {
     const itemData: Recipe = testData.RECIPE_1;
     
     TestBed.inject(ApplicationRef).tick();

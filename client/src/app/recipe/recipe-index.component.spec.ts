@@ -8,7 +8,6 @@ import { provideHttpClientTesting, HttpTestingController } from '@angular/common
 import { ApplicationRef } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from '../app.routes';
-import { School } from '../models/school';
 import { Recipe } from '../models/recipe';
 import { provideAnimations } from '@angular/platform-browser/animations';
 

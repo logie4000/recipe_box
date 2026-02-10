@@ -38,7 +38,6 @@ describe('ModelIndexComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(ModelIndexComponent<Recipe>);
-  //  fixture.componentRef.setInput("showStats", false);
     component = fixture.componentInstance;
 
     fixture.detectChanges();

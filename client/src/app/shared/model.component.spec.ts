@@ -11,7 +11,7 @@ import { ModelComponent } from './model.component';
 import { ModelService } from '../models/model.service';
 import { Recipe } from '../models/recipe';
 
-describe('RecipeComponent', () => {
+describe('ModelComponent', () => {
   const ENDPOINT_URL = 'ENDPOINT_URL';
 
   let component: ModelComponent<Recipe>;
@@ -35,7 +35,6 @@ describe('RecipeComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(ModelComponent<Recipe>);
-  //  fixture.componentRef.setInput("showStats", false);
     component = fixture.componentInstance;
     component.id.set(testData.RECIPE_1.id);
 
