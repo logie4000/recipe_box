@@ -10,6 +10,14 @@ export const RECIPE_1: Recipe = {
   image: "some.image.com/file.jpg",
 }
 
+export const RECIPE_2: Recipe = {
+  id: 2,
+  title: "Egg Nog",
+  description: "Holiday Egg Nog",
+  note: "For holidays",
+  image: "some.image.com/file.jpg",
+}
+
 export const INGREDIENT_1: Ingredient = {
   id: 1,
   position: 1,
@@ -17,8 +25,8 @@ export const INGREDIENT_1: Ingredient = {
 }
 
 export const INGREDIENT_2: Ingredient = {
-  id: 1,
-  position: 1,
+  id: 2,
+  position: 2,
   value: "2 cups heavy cream",
 }
 
@@ -29,7 +37,7 @@ export const DIRECTION_1: Direction = {
 }
 
 export const DIRECTION_2: Direction = {
-  id: 1,
-  position: 1,
+  id: 2,
+  position: 2,
   step: "Simmer the chowder for 20 minutes",
 }

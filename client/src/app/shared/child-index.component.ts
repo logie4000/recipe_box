@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { httpResource } from '@angular/common/http';
 import { ModelService } from '../models/model.service';
 
@@ -16,7 +16,7 @@ export class ChildIndexComponent<Model, ContainerModel>{
 
   }
 
-  loadRacesResource = httpResource<Model[]>( () => {
+  loadIndexResources = httpResource<Model[]>( () => {
     if (this.id() == 0) {
       return undefined;
     }
@@ -24,7 +24,7 @@ export class ChildIndexComponent<Model, ContainerModel>{
     return `/${this.containerService.endpointUrl}/${this.id()}/${this.modelService.api}`
   });
 
-  isLoading = computed(() => this.loadRacesResource.isLoading());
-  error = computed(() => this.loadRacesResource.error());
-  values = this.loadRacesResource.value;
+  isLoading = computed(() => this.loadIndexResources.isLoading());
+  error = computed(() => this.loadIndexResources.error());
+  values = this.loadIndexResources.value;
 }

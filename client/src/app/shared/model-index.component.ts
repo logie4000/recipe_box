@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
+import { httpResource } from '@angular/common/http';
+import { Component, computed } from '@angular/core';
+import { ModelService } from '../models/model.service';
 
 @Component({
-  selector: 'app-model-index',
-  standalone: true,
-  imports: [],
-  templateUrl: './model-index.component.html',
-  styleUrl: './model-index.component.css'
+    selector: 'app-model-index',
+    imports: [],
+    template: '',
+    styleUrls: []
 })
-export class ModelIndexComponent {
-
-}
+export class ModelIndexComponent<Model> {
+    loadComponentResource = httpResource<Model[]>( () => {
+      return `/${this.modelService.endpointUrl}`
+    });
+  
+    constructor(protected modelService: ModelService<Model>) {
+  
+    }
+  
+    isLoading = computed(() => this.loadComponentResource.isLoading());
+    error = computed(() => this.loadComponentResource.error());
+    values = this.loadComponentResource.value;
+  }

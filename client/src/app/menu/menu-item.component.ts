@@ -2,11 +2,10 @@ import { Component, input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-menu-item',
-  standalone: true,
-  imports: [],
-  templateUrl: './menu-item.component.html',
-  styleUrls: [ '../app.component.css', './menu-item.component.css' ]
+    selector: 'app-menu-item',
+    imports: [],
+    templateUrl: './menu-item.component.html',
+    styleUrls: ['../app.component.css', './menu-item.component.css']
 })
 export class MenuItemComponent {
   title = input<string>('');

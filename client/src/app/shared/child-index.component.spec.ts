@@ -11,6 +11,8 @@ import { ModelComponent } from './model.component';
 import { ModelService } from '../models/model.service';
 import { ModelIndexComponent } from './model-index.component';
 import { ChildIndexComponent } from './child-index.component';
+import { Ingredient } from '../models/ingredient';
+import { Recipe } from '../models/recipe';
 
 
 describe('ChildIndexComponent', () => {
