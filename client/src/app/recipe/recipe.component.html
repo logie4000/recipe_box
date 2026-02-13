@@ -1,19 +1,17 @@
-<div class="title">
-Title: {{ title() }}
+<div class="recipe-title">
+<p><strong>Title:</strong> {{ title() }}</p>
 </div>
 
-<div class="description">
-Description: {{ description() }}
+<div class="recipe-details">
+<p><strong>Description:</strong> {{ description() }}</p>
+
+<p><strong>Note:</strong> {{ note() }}</p>
 </div>
 
-<div class="note">
-Note: {{ note() }}
-</div>
+@if (showIngredients()) {
+  <app-recipe-ingredients [id]="id()" />
+}
 
-<div class="ingredients">
-INGREDIENTS
-</div>
-
-<div class="directions">
-DIRECTIONS
-</div>
+@if (showDirections()) {
+  <app-recipe-directions [id]="id()" />
+}

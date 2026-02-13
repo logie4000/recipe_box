@@ -26,6 +26,9 @@ describe('RecipeComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(RecipeComponent);
+    fixture.componentRef.setInput("showIngredients", false);
+    fixture.componentRef.setInput("showDirections", false);
+
     component = fixture.componentInstance;
     component.id.set(testData.RECIPE_1.id);
 
@@ -43,13 +46,12 @@ describe('RecipeComponent', () => {
 
     // expect(topPane).toBeTruthy();
 
-    var recipeTitle = fixture.nativeElement.querySelector('div[class="title"]')
-    var recipeDescription = fixture.nativeElement.querySelector('div[class="description"]')
-    var recipeNote = fixture.nativeElement.querySelector('div[class="note"]')
+    var recipeTitle = fixture.nativeElement.querySelector('div[class="recipe-title"]')
+    var recipeDescription = fixture.nativeElement.querySelector('div[class="recipe-details"]')
+
     
     expect(recipeTitle).toBeTruthy();
     expect(recipeDescription).toBeTruthy();
-    expect(recipeNote).toBeTruthy();
   })
 
   it('should fetch item data', waitForAsync(inject([HttpTestingController], async (mockHttp: HttpTestingController) => {
@@ -57,7 +59,7 @@ describe('RecipeComponent', () => {
     
     TestBed.inject(ApplicationRef).tick();
     fixture.detectChanges();
-    mockHttp.expectOne(`/${config.DB_RECIPES_SERVICE}/${itemData.id}`).flush(itemData);
+    mockHttp.expectOne(`${config.DB_RECIPES_SERVICE}/${itemData.id}`).flush(itemData);
 
     await TestBed.inject(ApplicationRef).whenStable();
     fixture.detectChanges();

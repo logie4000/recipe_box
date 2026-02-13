@@ -25,7 +25,7 @@ export class ModelComponent<Model> {
         return undefined;
       }
   
-      return `/${this.modelService.endpointUrl}/${this.id()}`
+      return `${this.modelService.endpointUrl}/${this.id()}`
     });
   
     constructor(protected activatedRoute: ActivatedRoute, protected modelService: ModelService<Model>) {

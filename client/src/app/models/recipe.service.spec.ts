@@ -34,13 +34,13 @@ describe('RecipeService', () => {
         expect(s).withContext("service returned stub value").toEqual(testData);
       });
   
-      mockHttp.expectOne(`/${config.DB_RECIPES_SERVICE}/${testData.id}`).flush(testData)
+      mockHttp.expectOne(`${config.DB_RECIPES_SERVICE}/${testData.id}`).flush(testData)
       tick();
       mockHttp.verify();
     })));
 
     it('should return the item URL', () => {
-        expect(service.itemUrl(RECIPE_1)).toEqual(`/${config.HOST_RECIPES_SERVICE}/${RECIPE_1.id}`)
+        expect(service.itemUrl(RECIPE_1)).toEqual(`${config.HOST_RECIPES_SERVICE}/${RECIPE_1.id}`)
     })
   });
   

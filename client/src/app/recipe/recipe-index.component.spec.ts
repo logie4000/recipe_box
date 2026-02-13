@@ -41,7 +41,7 @@ describe('RecipeIndexComponent', () => {
     
     TestBed.inject(ApplicationRef).tick();
     fixture.detectChanges();
-    mockHttp.expectOne(`/${config.DB_RECIPES_SERVICE}`).flush(itemData);
+    mockHttp.expectOne(`${config.DB_RECIPES_SERVICE}`).flush(itemData);
 
     await TestBed.inject(ApplicationRef).whenStable();
     fixture.detectChanges();

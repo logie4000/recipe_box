@@ -15,4 +15,12 @@ export class RecipeIndexComponent extends ModelIndexComponent<Recipe>{
     super(modelService)
   }
 
+  getValues(): Recipe[] {
+    var items = this.values();
+
+    if (items)
+      return items
+    else
+      return []
+  }
 }

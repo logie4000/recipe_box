@@ -35,13 +35,13 @@ describe('DirectionService', () => {
         expect(s).withContext("service returned stub value").toEqual(testData);
       });
   
-      mockHttp.expectOne(`/${config.DB_DIRECTIONS_SERVICE}/${testData.id}`).flush(testData)
+      mockHttp.expectOne(`${config.DB_DIRECTIONS_SERVICE}/${testData.id}`).flush(testData)
       tick();
       mockHttp.verify();
     })));
 
     it('should return the item URL', () => {
-        expect(service.itemUrl(DIRECTION_1)).toEqual(`/${config.HOST_DIRECTIONS_SERVICE}/${DIRECTION_1.id}`)
+        expect(service.itemUrl(DIRECTION_1)).toEqual(`${config.HOST_DIRECTIONS_SERVICE}/${DIRECTION_1.id}`)
     })
   });
   

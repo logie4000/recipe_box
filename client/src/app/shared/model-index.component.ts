@@ -10,7 +10,7 @@ import { ModelService } from '../models/model.service';
 })
 export class ModelIndexComponent<Model> {
     loadComponentResource = httpResource<Model[]>( () => {
-      return `/${this.modelService.endpointUrl}`
+      return `${this.modelService.endpointUrl}`
     });
   
     constructor(protected modelService: ModelService<Model>) {
@@ -20,4 +20,6 @@ export class ModelIndexComponent<Model> {
     isLoading = computed(() => this.loadComponentResource.isLoading());
     error = computed(() => this.loadComponentResource.error());
     values = this.loadComponentResource.value;
+
+
   }

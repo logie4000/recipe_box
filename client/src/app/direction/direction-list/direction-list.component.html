@@ -1,0 +1,6 @@
+<p class="recipe-text">
+  <strong>Directions</strong><br>
+    @for (direction of getDirections(); track direction) {
+      {{ direction.position + 1 }}. {{ direction.step }}<br>
+    }
+  </p>

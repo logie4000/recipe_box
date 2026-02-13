@@ -12,6 +12,6 @@ export class IngredientService extends ModelService<Ingredient> {
   override api = config.HOST_INGREDIENTS_SERVICE;
 
   override itemUrl(ingredient: Ingredient): string {
-    return `/${config.HOST_INGREDIENTS_SERVICE}/${ingredient.id}`
+    return `${config.HOST_INGREDIENTS_SERVICE}/${ingredient.id}`
   }
 }

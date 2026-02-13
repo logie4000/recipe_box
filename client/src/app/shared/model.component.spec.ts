@@ -50,7 +50,7 @@ describe('ModelComponent', () => {
     
     TestBed.inject(ApplicationRef).tick();
     fixture.detectChanges();
-    mockHttp.expectOne(`/${ENDPOINT_URL}/${itemData.id}`).flush(itemData);
+    mockHttp.expectOne(`${ENDPOINT_URL}/${itemData.id}`).flush(itemData);
 
     await TestBed.inject(ApplicationRef).whenStable();
     fixture.detectChanges();

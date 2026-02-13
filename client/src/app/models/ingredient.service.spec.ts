@@ -34,13 +34,13 @@ describe('IngredientService', () => {
         expect(s).withContext("service returned stub value").toEqual(testData);
       });
   
-      mockHttp.expectOne(`/${config.DB_INGREDIENTS_SERVICE}/${testData.id}`).flush(testData)
+      mockHttp.expectOne(`${config.DB_INGREDIENTS_SERVICE}/${testData.id}`).flush(testData)
       tick();
       mockHttp.verify();
     })));
 
     it('should return the item URL', () => {
-        expect(service.itemUrl(INGREDIENT_1)).toEqual(`/${config.HOST_INGREDIENTS_SERVICE}/${INGREDIENT_1.id}`)
+        expect(service.itemUrl(INGREDIENT_1)).toEqual(`${config.HOST_INGREDIENTS_SERVICE}/${INGREDIENT_1.id}`)
     })
   });
   

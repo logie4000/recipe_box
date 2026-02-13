@@ -57,7 +57,7 @@ describe('ChildIndexComponent', () => {
     
     TestBed.inject(ApplicationRef).tick();
     fixture.detectChanges();
-    mockHttp.expectOne(`/${ENDPOINT_URL}/1/${ENDPOINT_API}`).flush(itemData);
+    mockHttp.expectOne(`${ENDPOINT_URL}/1/${ENDPOINT_API}`).flush(itemData);
 
     await TestBed.inject(ApplicationRef).whenStable();
     fixture.detectChanges();

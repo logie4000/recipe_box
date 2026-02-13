@@ -21,7 +21,7 @@ export class ChildIndexComponent<Model, ContainerModel>{
       return undefined;
     }
 
-    return `/${this.containerService.endpointUrl}/${this.id()}/${this.modelService.api}`
+    return `${this.containerService.endpointUrl}/${this.id()}/${this.modelService.api}`
   });
 
   isLoading = computed(() => this.loadIndexResources.isLoading());

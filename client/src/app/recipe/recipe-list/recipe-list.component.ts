@@ -8,7 +8,7 @@ import { ModelListComponent } from '../../shared/model-list.component';
   selector: 'app-recipe-list',
   imports: [],
   templateUrl: './recipe-list.component.html',
-  styleUrl: './recipe-list.component.css'
+  styleUrls: [ '../../app.component.css', './recipe-list.component.css' ]
 })
 export class RecipeListComponent extends ModelListComponent<Recipe> {
 

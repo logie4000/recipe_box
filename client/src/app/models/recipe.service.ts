@@ -12,6 +12,6 @@ export class RecipeService extends ModelService<Recipe> {
   override api = config.HOST_RECIPES_SERVICE;
 
   override itemUrl(recipe: Recipe): string {
-    return `/${config.HOST_RECIPES_SERVICE}/${recipe.id}`
+    return `${config.HOST_RECIPES_SERVICE}/${recipe.id}`
   }
 }
