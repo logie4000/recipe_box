@@ -7,7 +7,7 @@ import { DirectionService } from '../../models/direction.service';
   selector: 'app-direction-list',
   imports: [],
   templateUrl: './direction-list.component.html',
-  styleUrl: './direction-list.component.css'
+    styleUrls: [ '../../app.component.css', '../../recipe/recipe.component.css', './direction-list.component.css' ]
 })
 export class DirectionListComponent {
   directionList = input<Direction[] | undefined>([]);
