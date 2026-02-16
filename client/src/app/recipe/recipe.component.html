@@ -1,0 +1,33 @@
+<div id="recipe-top">
+    <div id="recipe-title">
+      <p class="recipe-text"><h1><strong>{{ title() }}</strong></h1>
+    </div>
+
+    <div id="recipe-left">
+      <div id="recipe-description">
+      <p class="recipe-text"><strong>Description:</strong> {{ description() }}</p>
+
+      <p class="recipe-text"><strong>Note:</strong> {{ note() }}</p>
+    </div>
+  </div>
+  
+  <div id="recipe-right">
+    <div id="recipe-image">
+      IMAGE
+    </div>
+  </div>
+</div>
+
+<div id="recipe-details">
+  <div id="recipe-left">
+    @if (showIngredients()) {
+      <app-recipe-ingredients [id]="id()" />
+    }
+
+  </div>
+  <div id="recipe-right">
+    @if (showDirections()) {
+      <app-recipe-directions [id]="id()" />
+    }
+  </div>
+</div>

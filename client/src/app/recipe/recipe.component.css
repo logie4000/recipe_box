@@ -1,0 +1,59 @@
+#recipe-top {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 450px;
+}
+
+#recipe-details {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+#recipe-footer {
+  width: 100%;
+}
+
+#recipe-title {
+  grid-column: 1 / span 2;
+
+  font-family: "courier new";
+  font-size: 2em;
+  font-weight: 900;
+}
+
+#recipe-description {
+  grid-column: 1 / span 1;
+}
+
+#recipe-left {
+  grid-column: 1 / span 1;
+}
+
+#recipe-right {
+  grid-column: 2 / span 1;
+}
+
+#recipe-image {
+  width: 404px;
+  min-height: 200px;
+  padding: 0px;
+  margin: 2px;
+  border: 2px solid black;
+}
+
+.recipe-text {
+  font-family: "Courier New";
+  font-size: 1em;
+}
+
+h2.recipe-text {
+  font-family: "Courier New";
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: black;
+}
+
+img.recipe-image {
+  width: 400;
+}
