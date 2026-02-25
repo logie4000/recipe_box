@@ -64,7 +64,11 @@ a:hover {
 #app-title {
   float: left;
   padding-left: 15px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  font-size: 5rem;
 }
+
 
 #greeting {
   padding-top: 50px;
@@ -98,6 +102,8 @@ div.menu-item {
   padding-bottom: 5px;
   border-top: 1px solid white;
   border-left: 1px solid white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.5rem;
 }
 
 div.menu-item:hover {
