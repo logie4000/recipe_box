@@ -1,0 +1,43 @@
+include:
+  - db-service.yml
+
+services:
+  client:
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        BUILD_CONFIG: "test"
+    image: "recipe-box.client-test:latest"
+    ports:
+      - "8080:80"
+    networks: 
+      - teapothill
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.development
+    image: "recipe-box.api-development:latest"
+    ports:
+      - "8181:80"
+    networks:
+      - teapothill
+    env_file:
+      - path: "./config/.test.env"
+        required: true
+    environment:
+      - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+    depends_on:
+     db:
+       condition: service_healthy
+ 
+volumes:
+  teapothill_volume:
+    external: true
+
+networks:
+  teapothill:
+    external: true
