@@ -46,6 +46,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "baseHref": "/recipe-box/",
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
