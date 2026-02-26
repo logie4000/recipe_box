@@ -8,7 +8,6 @@ COPY ./package*.json /app/
 RUN npm install
 
 COPY . /app/
-COPY ../config/nginx.conf /app/config/
 
 #ARG configuration=production
 ARG BUILD_CONFIG=development
