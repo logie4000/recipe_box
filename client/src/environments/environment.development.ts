@@ -1,4 +1,4 @@
 export const environment = {
-  baseHref: 'development',
+  baseHref: 'recipe-box',
   appTitle: 'RECIPE BOX DEVELOPMENT',
 };
