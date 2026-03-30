@@ -6,9 +6,11 @@ services:
     build: 
       context: ./client
       dockerfile: Dockerfile
-    image: "recipe-box.client:latest"
+      args:
+        BUILD_CONFIG: "test"
+    image: "recipe-box.client-test:latest"
     ports:
-      - "8180:80"
+      - "8080:80"
     networks: 
       - teapothill
     depends_on:
@@ -17,14 +19,14 @@ services:
   api:
     build:
       context: ./api
-      dockerfile: Dockerfile.production
-    image: "recipe-box.api:latest"
+      dockerfile: Dockerfile.development
+    image: "recipe-box.api-development:latest"
     ports:
       - "8181:80"
     networks:
       - teapothill
     env_file:
-      - path: "./config/.bills_galley.env"
+      - path: "./config/.test.env"
         required: true
     environment:
       - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}

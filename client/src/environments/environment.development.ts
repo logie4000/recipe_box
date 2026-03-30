@@ -1,4 +1,5 @@
 export const environment = {
-  baseHref: 'development',
+  dbHost: 'https://www.teapothill.org',
+  baseHref: 'recipe-box',
   appTitle: 'RECIPE BOX DEVELOPMENT',
 };

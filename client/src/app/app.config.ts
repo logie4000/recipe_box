@@ -6,8 +6,8 @@ import { APP_BASE_HREF, PlatformLocation, DatePipe } from '@angular/common';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { environment } from '../environments/environment';
 
-export const APP_TITLE = "Recipe Box"; //`${environment.appTitle}`;
-export const REST_DB_PATH = 'https://www.teapothill.org/billsgalley/api' //`${environment.baseHref}/db`; 
+export const APP_TITLE = `${environment.appTitle}`;
+export const REST_DB_PATH = `${environment.dbHost}/${environment.baseHref}/api` //`${environment.baseHref}/db`; 
 
 export const HOST_RECIPES_SERVICE = 'recipes';
 export const HOST_INGREDIENTS_SERVICE = 'ingredients';

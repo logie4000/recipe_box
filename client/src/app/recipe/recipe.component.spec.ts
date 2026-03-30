@@ -46,8 +46,8 @@ describe('RecipeComponent', () => {
 
     // expect(topPane).toBeTruthy();
 
-    var recipeTitle = fixture.nativeElement.querySelector('div[class="recipe-title"]')
-    var recipeDescription = fixture.nativeElement.querySelector('div[class="recipe-details"]')
+    var recipeTitle = fixture.nativeElement.querySelector('div[id="recipe-title"]')
+    var recipeDescription = fixture.nativeElement.querySelector('div[id="recipe-details"]')
 
     
     expect(recipeTitle).toBeTruthy();
